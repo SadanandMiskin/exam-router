@@ -69,4 +69,11 @@ router.get('/:route', async (req, res) => {
     }
 })
 
+
+router.post('/logout' , (req,res)=>{
+    req.session.destroy((err)=>{
+        res.redirect('/login')
+    })
+})
+
 module.exports = router

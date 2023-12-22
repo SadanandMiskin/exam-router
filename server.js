@@ -5,6 +5,7 @@ const queryModel = require('./models/query')
 
 const route = require('./routes/route')
 const login = require('./routes/login')
+const list = require('./routes/list')
 
 const express = require('express')
 const session = require('express-session')
@@ -27,6 +28,13 @@ app.use(bodyParser.urlencoded({
 app.set('view engine', 'ejs')
 
 app.use('/login' , login)
+app.use('/list' , list )
+app.post('/remove/:id' , async(req,res)=>{
+    const id = req.params.id
+    await queryModel.findOneAndDelete({_id: id})
+    res.redirect('/list')
+})
+
 app.use('/' , route)
 
 
