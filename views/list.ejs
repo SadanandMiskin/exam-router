@@ -83,18 +83,22 @@ figure.snip1390 .profile {
 </head>
 <body style="background-color: rgb(63, 63, 63);">
     <a href="/"><button style="padding: 20px; background-color: rgb(149, 17, 17); font-weight: bolder; margin-top: 10px; width: 100%; cursor: pointer; font-size: 20px;">Back</button></a>
+   <div style="display: flex;">
     <% routeList.forEach(function (route) { %> 
-    <figure class="snip1390">
-        
-        <figcaption>
-          <h2><%= route.route %></h2>
-          <h5 style="background-color: white; padding: 7px;"><%= route.message %></h5>
-          <form action="/remove/<%= route._id %>" method="post">  
-            <button type="submit"  style="padding: 20px; background-color: rgb(149, 17, 17); font-weight: bolder; margin-top: 10px; width: 100%; cursor: pointer; font-size: 20px;">Remove</button>
-        </form>
-        </figcaption>
-        
-      </figure>
-      <% }) %>
+      <figure class="snip1390" >
+          
+          <figcaption>
+            <h2><%= route.route %></h2>
+          <div style="height: 300px; overflow: auto;">
+            <h5 style="background-color: white; padding: 7px;"><%= route.message %></h5>
+          </div>
+            <form action="/remove/<%= route._id %>" method="post">  
+              <button type="submit"  style="padding: 20px; background-color: rgb(149, 17, 17); font-weight: bolder; margin-top: 10px; width: 100%; cursor: pointer; font-size: 20px;">Remove</button>
+          </form>
+          </figcaption>
+          
+        </figure>
+        <% }) %>
+   </div>
 </body>
 </html>
