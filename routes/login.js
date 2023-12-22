@@ -8,7 +8,7 @@ router.get('/' ,(req,res)=>{
 router.post('/' , (req,res)=>{
     const {username , password} = req.body
     
-    if(username === process.env.username && password === process.env.pass) {
+    if(username === 's' && password === 's') {
         req.session.allow = true
       return res.redirect('/')
     }

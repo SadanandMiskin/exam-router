@@ -51,7 +51,7 @@ router.get('/:route', async (req, res) => {
     const {
         route
     } = req.params
-    console.log(route)
+    // console.log(route)
     try {
         const query = await queryModel.findOne({
             route

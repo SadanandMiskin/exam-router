@@ -31,6 +31,13 @@ app.set('view engine', 'ejs')
 
 app.use('/login' , login)
 app.use('/list' , list )
+app.get('/publiclist' ,async (req,res)=>{
+    const routesListsss = await queryModel.find() 
+    const routeList = [...routesListsss]
+    res.render('publiclist' ,{routeList: routeList})
+    
+})
+
 app.post('/remove/:id' , async(req,res)=>{
     const id = req.params.id
     await queryModel.findOneAndDelete({_id: id})
