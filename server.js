@@ -31,6 +31,7 @@ app.set('view engine', 'ejs')
 
 app.use('/login' , login)
 app.use('/list' , list )
+
 app.get('/publiclist' ,async (req,res)=>{
     const routesListsss = await queryModel.find() 
     const routeList = [...routesListsss]
@@ -45,7 +46,6 @@ app.post('/remove/:id' , async(req,res)=>{
 })
 
 app.use('/' , route)
-
 
 app.listen(3000, async () => {
     try {
